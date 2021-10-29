@@ -9,7 +9,7 @@ const App = () => {
     <>
       <InstaLogin />
       <header className="App-header" style={{ textAlign: "center" }}>
-        <h1>Instagram Feed with Instagram API</h1>
+        <h1>Instagram with Instagram API</h1>
       </header>
       <InstaFeeds
         // token={
