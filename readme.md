@@ -1,0 +1,15 @@
+## Create Facebook App and generate a long live token
+curl -i -X GET "https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=4936eebe886d1bde895304f850e0b344
+&access_token=IGQVJWQUQ0TUJkSGJFZA0ZAEVWNOeHlaWVVJcUJpZAWNDWEUwc0E5WmJ5R01pOVZAibXBmT1JlV2x2bFp6NEp0WVJrM0loaGUwdGVrR2wyQkwtcUJhQ3RESURrUnE1U1M1RHh6dlk1MERSYWRDOHZAGMnp4X3ZALSWg3cVYwOVdF"
+
+
+
+https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption&limit=12&access_token=IGQVJWQUQ0TUJkSGJFZA0ZAEVWNOeHlaWVVJcUJpZAWNDWEUwc0E5WmJ5R01pOVZAibXBmT1JlV2x2bFp6NEp0WVJrM0loaGUwdGVrR2wyQkwtcUJhQ3RESURrUnE1U1M1RHh6dlk1MERSYWRDOHZAGMnp4X3ZALSWg3cVYwOVdF
+
+https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption&limit=12&access_token=IGQVJXOXdrNlgzWDRlQlN5dG84UFRVUDBSbEcyM2IzM0lSV3BnbkFrN01Gc2VsdkpOZAGNmbkFsaHBPaXA0NWxjMEJJZAUwzMTRKcFZA2UjFHNmZATOWdBNXcwUnQ2SmVJejRZAa0RGc25Oc2JPb2EteUdUSwZDZD
+
+
+
+
+
+https://docs.oceanwp.org/article/487-how-to-get-instagram-access-token

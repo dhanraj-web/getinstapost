@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import InstaFeeds from "./components/InstaFeeds";
 
-function App() {
+import "./App.css";
+import InstaLogin from "./components/instaLogin";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <InstaLogin />
+      <header className="App-header" style={{ textAlign: "center" }}>
+        <h1>Instagram Feed with Instagram API</h1>
       </header>
-    </div>
+      <InstaFeeds
+        // token={
+        //   "IGQVJXOXdrNlgzWDRlQlN5dG84UFRVUDBSbEcyM2IzM0lSV3BnbkFrN01Gc2VsdkpOZAGNmbkFsaHBPaXA0NWxjMEJJZAUwzMTRKcFZA2UjFHNmZATOWdBNXcwUnQ2SmVJejRZAa0RGc25Oc2JPb2EteUdUSwZDZ"
+        // }
+        limit={12}
+      />
+    </>
   );
-}
+};
 
 export default App;
