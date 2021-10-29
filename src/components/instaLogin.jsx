@@ -10,13 +10,16 @@ const InstaLogin = () => {
   const getUserAccessCode = async (res) => {
     console.log(res);
     try {
-      const b = await axios.post("https://oauth.nzpost.co.nz/as/token.oauth2", {
-        client_id: "605028720691089",
-        client_secret: "4936eebe886d1bde895304f850e0b344",
-        grant_type: "authorization_code",
-        redirect_uri: "https://getinstanft.herokuapp.com/",
-        code: res,
-      });
+      const b = await axios.post(
+        "https://api.instagram.com/oauth/access_token/",
+        {
+          client_id: "605028720691089",
+          client_secret: "4936eebe886d1bde895304f850e0b344",
+          grant_type: "authorization_code",
+          redirect_uri: "https://getinstanft.herokuapp.com/",
+          code: res,
+        }
+      );
     } catch (error) {
       console.log(error);
     }
