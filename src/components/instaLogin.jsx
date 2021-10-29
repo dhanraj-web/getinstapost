@@ -15,7 +15,7 @@ const InstaLogin = () => {
         client_secret: "4936eebe886d1bde895304f850e0b344",
         grant_type: "authorization_code",
         redirect_uri: "https://getinstanft.herokuapp.com/",
-        code: { res },
+        code: res,
       })
       .then((response) => {
         console.log(response);
