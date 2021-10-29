@@ -7,7 +7,7 @@ const InstaLogin = () => {
     console.log(res);
     try {
       const b = await axios.post(
-        "https://api.instagram.com/oauth/access_token/",
+        "https://api.instagram.com/oauth/access_token",
         {
           client_id: "605028720691089",
           client_secret: "4936eebe886d1bde895304f850e0b344",
