@@ -13,10 +13,16 @@ const InstaLogin = () => {
       code: res,
     };
     try {
-      await axios.post(
-        "https://api.instagram.com/oauth/access_token",
-        formData
-      );
+      await axios({
+        method: "post",
+        url: "https://api.instagram.com/oauth/access_token",
+        data: formData,
+        header: { "content-type": "multipart/form-data" },
+      }).then((res) => console.log(res));
+      // await axios.post(
+      //   "https://api.instagram.com/oauth/access_token",
+      //   formData
+      // );
     } catch (error) {
       console.log(error);
     }
