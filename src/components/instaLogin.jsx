@@ -3,10 +3,6 @@ import React from "react";
 import InstagramLogin from "react-instagram-login";
 
 const InstaLogin = () => {
-  const responseInstagram = (response) => {
-    console.log(response);
-  };
-
   const getUserAccessCode = async (res) => {
     console.log(res);
     try {
