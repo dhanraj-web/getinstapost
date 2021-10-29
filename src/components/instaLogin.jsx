@@ -12,7 +12,7 @@ const InstaLogin = () => {
       onSuccess={(res) => console.log(res)}
       onFailure={(res) => console.log(res)}
       scope={["user_profile", "user_media"]}
-      redirectUri="https://getinstaposts.netlify.app/"
+      redirectUri="https://getinstanft.herokuapp.com/"
       // redirectUri="https://localhost:3000/"
     />
   );
