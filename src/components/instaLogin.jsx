@@ -5,27 +5,28 @@ import InstagramLogin from "react-instagram-login";
 const InstaLogin = () => {
   const getUserAccessCode = async (res) => {
     console.log(res);
-    // try {
-    //   const b = await axios.post(
-    //     "https://api.instagram.com/oauth/access_token",
-    //     {
-    //       client_id: "605028720691089",
-    //       client_secret: "4936eebe886d1bde895304f850e0b344",
-    //       grant_type: "authorization_code",
-    //       redirect_uri: "https://getinstanft.herokuapp.com/",
-    //       code: res,
-    //     }
-    //   );
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    await axios
-      .post(
-        `https://api.instagram.com/oauth/access_token/client_id=605028720691089/client_secret=4936eebe886d1bde895304f850e0b344/grant_type=authorization_code/redirect_uri=https://getinstanft.herokuapp.com//code=${res}`
-      )
-      .then((response) => {
-        console.log(response);
-      });
+    const formData = {
+      client_id: "605028720691089",
+      client_secret: "4936eebe886d1bde895304f850e0b344",
+      grant_type: "authorization_code",
+      redirect_uri: "https://getinstanft.herokuapp.com/",
+      code: res,
+    };
+    try {
+      await axios.post(
+        "https://api.instagram.com/oauth/access_token",
+        formData
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    // await axios
+    //   .post(
+    //     `https://api.instagram.com/oauth/access_token/client_id=605028720691089/client_secret=4936eebe886d1bde895304f850e0b344/grant_type=authorization_code/redirect_uri=https://getinstanft.herokuapp.com//code=${res}`
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //   });
   };
 
   return (
