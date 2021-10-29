@@ -1,8 +1,9 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import InstagramLogin from "react-instagram-login";
 
 const InstaLogin = () => {
+  const [feeds, setFeedsData] = useState([]);
   const getUserAccessCode = async (res) => {
     console.log(res);
     const formdata = new FormData();
@@ -11,36 +12,35 @@ const InstaLogin = () => {
     formdata.append("grant_type", "authorization_code");
     formdata.append("redirect_uri", "https://getinstanft.herokuapp.com/");
     formdata.append("code", res);
-    // const formData = {
-    //   client_id: "605028720691089",
-    //   client_secret: "4936eebe886d1bde895304f850e0b344",
-    //   grant_type: "authorization_code",
-    //   redirect_uri: "https://getinstanft.herokuapp.com/",
-    //   code: res,
-    // };
-    console.log(formdata);
+
     try {
       await axios({
         method: "post",
         url: "https://api.instagram.com/oauth/access_token",
         data: formdata,
         header: { "content-type": "multipart/form-data" },
-      }).then((res) => console.log(res));
-      // await axios.post(
-      //   "https://api.instagram.com/oauth/access_token",
-      //   formData
-      // );
+      }).then((res) => fetchInstagramPost(res.data.access_token));
     } catch (error) {
       console.log(error);
     }
-    // await axios
-    //   .post(
-    //     `https://api.instagram.com/oauth/access_token/client_id=605028720691089/client_secret=4936eebe886d1bde895304f850e0b344/grant_type=authorization_code/redirect_uri=https://getinstanft.herokuapp.com//code=${res}`
-    //   )
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
   };
+
+  async function fetchInstagramPost(accessKey) {
+    try {
+      axios
+        .get(
+          `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption&limit=12&access_token=${accessKey}`
+        )
+        .then((resp) => {
+          console.log(resp);
+          setFeedsData(resp.data.data);
+        });
+    } catch (err) {
+      console.log("error", err);
+    }
+  }
+
+  console.log(feeds);
 
   return (
     <InstagramLogin
